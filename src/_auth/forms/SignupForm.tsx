@@ -42,9 +42,13 @@ const SignupForm = () => {
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
     const newUser = await createUserAccount(values);
 
-    if (!newUser) {
+    if (!newUser || !newUser.$id) {
       return toast({
-        title: "Sign up failed. Please try again!",
+        title: newUser.message || "Sign up failed. Please try again!",
+      });
+    } else {
+      toast({
+        title: "Account created successfully!",
       });
     }
 
@@ -54,8 +58,8 @@ const SignupForm = () => {
     });
 
     if (!session) {
-      toast({
-        title: "1Sign in failed. Please try again!",
+      return toast({
+        title: "Sign in failed. Please try again!",
       });
     }
 
@@ -65,7 +69,7 @@ const SignupForm = () => {
       navigate("/");
     } else {
       toast({
-        title: "2Sign in failed. Please try again!",
+        title: "Sign in failed. Please try again!",
       });
     }
   }
@@ -141,9 +145,9 @@ const SignupForm = () => {
           <Button
             type="submit"
             className="shad-button_primary"
-            disabled={isCreating}
+            disabled={isCreating || isSigningIn || isUserLoading}
           >
-            {isCreating ? (
+            {isCreating || isSigningIn || isUserLoading ? (
               <div className="flex-center gap-2">
                 {" "}
                 <Loader /> Loading...
