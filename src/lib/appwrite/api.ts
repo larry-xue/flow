@@ -2,7 +2,7 @@ import { INewUser } from "@/types";
 import { account, appwriteConfig, avatars, databases } from "./config";
 import { ID, Query } from "appwrite";
 
-export async function createUserAccount(user: INewUser) {
+export async function createUserAccount(user: INewUser): Promise<any> {
   try {
     const newAccount = await account.create(
       ID.unique(),
