@@ -4,3 +4,4 @@
 - 在 try catch 中即使 return 了，也会继续执行 finally 中的代码，但不会继续执行 finally block 后面的代码了
 - react useContext 如何使用
 - app write v14 在使用 listDocument 的时候看着有 bug，改用 v13 解决了
+- 封装 fetch，如何统一处理 appwrite 的异常
