@@ -5,3 +5,15 @@
 - react useContext 如何使用
 - app write v14 在使用 listDocument 的时候看着有 bug，改用 v13 解决了
 - 封装 fetch，如何统一处理 appwrite 的异常
+- react query 如何使用
+- flex属性
+  - flex属性分别是flex-grow，flex-shrink，flex-basis三个组成的，所以你可以设置三个值
+  - flex-basics
+    - 一个box，如果我们没有设置宽高，那么会按照其实际内容的宽高来计算宽高；如果我们给了确定的width/height，那么就按照我们给的宽高来计算；但是如果我们给了flex-basis，那么就按照我们给的flex-basis来计算
+    - flex-basics的优先级高于width
+  - flex-grow
+    - flex-grow是用来瓜分父项的**剩余空间**
+    - flex-grow默认值是0
+    - 如果我们分别给两个flex的子项设置了1和2，那么第一个子项会获得1/3的剩余空间，第二个子项会获得2/3的剩余空间
+  - flex-shrink
+    - flex-shrink是用来缩小子项的**收缩程度**
